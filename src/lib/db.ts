@@ -6,7 +6,7 @@ const pool = new Pool({
   host: 'localhost',
   database: 'quantdb', 
   password: 'quant14',
-  port: 5432,
+  port: 8080,
 });
 
 export async function query(text: string, params?: any[]) {
