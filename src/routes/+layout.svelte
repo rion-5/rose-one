@@ -7,6 +7,7 @@
     <a href="/">Home</a>
     <a href="/map">Map</a>
     <a href="/bar">Bar</a>
+    <a href="/bar2">Bar2</a>
     <a href="/blog">Blog</a>
     <a href="/about">About</a>
 </nav>
