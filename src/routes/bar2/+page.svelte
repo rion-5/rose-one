@@ -80,8 +80,7 @@
 				.attr('y1', 450)
 				.attr('x2', 630)
 				.attr('y2', 450)
-				.attr('stroke','black');
-				
+				.attr('stroke','black');		
 		}
 		
 	});
