@@ -47,13 +47,12 @@
 			const yScale = d3.scaleLinear().domain([0, maxCount]).range([450, 50]);
 
 			const barAndLabel = svg
-				.selectAll<SVGGElement, Data>('g')
+				.selectAll('rect')
 				.data(data)
-				.join('g')
+				.join('rect')
 				.attr('transform', (d) => `translate(${xScale(d.technology)}, ${yScale(d.count)})`);
 
 			barAndLabel
-				.append<SVGRectElement>('rect')
 				.attr('width', xScale.bandwidth())
 				.attr('height', (d) => 450 - yScale(d.count))
 				.attr('x', 30)
