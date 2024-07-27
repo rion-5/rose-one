@@ -8,12 +8,7 @@
 	};
 
 	onMount(() => {
-		// d3.csv("./data/daily_precipitations.csv", d3.autoType).then((data: PrecipitationData[]) => {
-		//   console.log("precipitations data", data);
-		//   drawArc(data);
-		// });
-
-		d3.csv('./daily_precipitations.csv', (d: d3.DSVRowString<string>) => {
+		d3.csv('./data/daily_precipitations.csv', (d: d3.DSVRowString<string>) => {
 			// Manually convert the data to the appropriate types
 			return {
 				date: new Date(d.date as string),
