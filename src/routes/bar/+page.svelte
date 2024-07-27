@@ -12,7 +12,7 @@
 			.select('.responsive-svg-container')
 			.append('svg')
 			.attr('viewBox', '0 0 700 550')
-			.attr('preserveAspectRatio', 'xMinYMin meet')
+			// .attr('preserveAspectRatio', 'xMinYMin meet')
 			.attr('width', '100%')
 			.attr('height', '100%')
 			.classed('svg-content-responsive', true);
@@ -97,7 +97,7 @@
 	.responsive-svg-container {
 		width: 100%;
 		height: 100%;
-		display: flex;
+		/* display: flex; */
 		justify-content: center;
 		align-items: center;
 		position: relative;
