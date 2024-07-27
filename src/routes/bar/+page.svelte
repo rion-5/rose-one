@@ -17,7 +17,7 @@
 			.attr('height', '100%')
 			.classed('svg-content-responsive', true);
 
-		d3.csv('./data.csv').then((data: d3.DSVRowArray<string>) => {
+		d3.csv('./data/data.csv').then((data: d3.DSVRowArray<string>) => {
 			const formattedData: Data[] = data.map((d) => ({
 				technology: d.technology as string,
 				count: +d.count!

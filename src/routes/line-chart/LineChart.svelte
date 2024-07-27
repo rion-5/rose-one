@@ -12,7 +12,7 @@ interface TemperatureData {
 
 onMount(() => {
   // Load the data here
-  d3.csv('./weekly_temperature.csv', (d: d3.DSVRowString<string>) => {
+  d3.csv('./data/weekly_temperature.csv', (d: d3.DSVRowString<string>) => {
     // Manually convert the data to the appropriate types
     return {
       date: new Date(d.date as string),
@@ -66,20 +66,7 @@ onMount(() => {
     /***************************/
     /*     Append the axes     */
     /***************************/
-    // // Bottom axis
-    // const bottomAxis = d3.axisBottom(xScale).tickFormat(d3.timeFormat('%b')(date));
-    // innerChart
-    // 	.append('g')
-    // 	.attr('class', 'axis-x')
-    // 	.attr('transform', `translate(0, ${innerHeight})`)
-    // 	.call(bottomAxis);
-    // d3.selectAll('.axis-x text')
-    // 	.attr('x', (d) => {
-    // 		const currentMonth = d as Date;
-    // 		const nextMonth = new Date(2021, currentMonth.getMonth() + 1, 1);
-    // 		return (xScale(nextMonth) - xScale(currentMonth)) / 2;
-    // 	})
-    // 	.attr('y', '10px');
+
     // Bottom axis
     const bottomAxis = d3.axisBottom(xScale).tickFormat((date: Date | NumberValue) => {
       if (date instanceof Date) {

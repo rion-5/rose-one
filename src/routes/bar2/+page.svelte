@@ -13,7 +13,7 @@
 			.attr('viewBox', '0 0 700 550')
 			.attr('width', 700).attr('height', 550);  // viewport
 
-		d3.csv('./data.csv').then((data: d3.DSVRowArray<string>) => {
+		d3.csv('./data/data.csv').then((data: d3.DSVRowArray<string>) => {
 			// #2 Load the dataset.
 			const formattedData: Data[] = data.map(d => ({
 				// #3 Format the data.

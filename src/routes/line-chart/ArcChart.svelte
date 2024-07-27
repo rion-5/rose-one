@@ -8,7 +8,7 @@
 	};
 
 	onMount(() => {
-		// d3.csv("./daily_precipitations.csv", d3.autoType).then((data: PrecipitationData[]) => {
+		// d3.csv("./data/daily_precipitations.csv", d3.autoType).then((data: PrecipitationData[]) => {
 		//   console.log("precipitations data", data);
 		//   drawArc(data);
 		// });
