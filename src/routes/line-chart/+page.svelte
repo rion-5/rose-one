@@ -1,5 +1,4 @@
 <script lang="ts">
-    import '../../base.css';
     import LineChart from './LineChart.svelte';
     import ArcChart from './ArcChart.svelte';
 </script>
