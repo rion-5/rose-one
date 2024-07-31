@@ -11,6 +11,7 @@
     <a href="/bar2">Bar2</a>
     <a href="/line-chart">Line-chart</a>
     <a href="/stock">Stock</a>
+    <a href="/stock-chart">StockChart</a>
     <a href="/blog">Blog</a>
     <a href="/about">About</a>
 </nav>
