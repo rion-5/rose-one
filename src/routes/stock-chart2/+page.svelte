@@ -47,7 +47,11 @@
       fetchData();
     }
   }
-
+  function handleInput(event: Event) {
+        // Type assertion to access the value property
+        const input = event.target as HTMLInputElement;
+        symbol = input.value.toUpperCase();
+    }
 	// 최초 데이터 로드
 	onMount(fetchData);
 </script>
@@ -110,7 +114,7 @@
 
 <div class="container">
   <div class="search-bar">
-    <input bind:value={symbol} placeholder="Symbol" on:keypress={handleKeyPress}/>
+    <input bind:value={symbol} placeholder="Symbol" on:keypress={handleKeyPress} on:input={handleInput}/>
     <input type="date" bind:value={startDate} on:keypress={handleKeyPress}/>
     <input type="date" bind:value={endDate} on:keypress={handleKeyPress}/>
     <button on:click={fetchData}>조회</button>
