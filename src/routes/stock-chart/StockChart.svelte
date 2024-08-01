@@ -11,9 +11,11 @@
 	export let endDate = '2024-07-30';
 	export let chartData: ChartData[] = [];
 
+	const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+
 	onMount(async () => {
 		const response = await fetch(
-			`http://localhost:8443/tradeDataForChart?symbol=${symbol}&start_date=${startDate}&end_date=${endDate}`
+			`${apiBaseUrl}/tradeDataForChart?symbol=${symbol}&start_date=${startDate}&end_date=${endDate}`
 		);
 		if (!response.ok) {
 			throw new Error('Failed to fetch data');

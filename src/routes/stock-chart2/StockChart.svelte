@@ -19,7 +19,7 @@
 		const response = await fetch(
 			`${apiBaseUrl}/stockData?symbol=${symbol}&start_date=${startDate}&end_date=${endDate}`
 
-			// `http://localhost:8443/stockData?symbol=${symbol}&start_date=${startDate}&end_date=${endDate}`
+			// `${apiBaseUrl}/stockData?symbol=${symbol}&start_date=${startDate}&end_date=${endDate}`
 		);
 		if (!response.ok) {
 			throw new Error('Failed to fetch data');

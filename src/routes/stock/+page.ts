@@ -6,7 +6,7 @@ interface TradeData {
 }
 
 export const load: PageLoad = async ({ fetch }) => {
-    const response = await fetch('http://localhost:8443/tradeDataForChart?symbol=TSLA&start_date=2024-01-01&end_date=2024-07-30');
+    const response = await fetch('${apiBaseUrl}/tradeDataForChart?symbol=TSLA&start_date=2024-01-01&end_date=2024-07-30');
 
     if (!response.ok) {
         throw new Error('Failed to fetch data');
