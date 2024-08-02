@@ -1,51 +1,34 @@
 <script lang="ts">
-    // import '../base.css';
-    // import type { LayoutData } from './$types';
-    
-    // export let data: LayoutData;
+	// import '../base.css';
+  import { auth } from '../stores/auth';
+  import { goto } from '$app/navigation';
+  import { onMount } from 'svelte';
+  import { page } from '$app/stores';
+
+  let isLoggedIn: boolean;
+
+  // 로그인 상태 구독
+  $: auth.subscribe(state => {
+      isLoggedIn = state.isLoggedIn;
+  });
+
+  // 보호된 경로 목록
+  const protectedRoutes = [
+      '/map', '/bar', '/bar2', '/line-chart', 
+      '/stock', '/stock-chart2', '/blog', '/about'
+  ];
+
+  // 페이지 이동 시 로그인 상태 확인
+  $: page.subscribe(($page) => {
+      if (protectedRoutes.includes($page.url.pathname) && !isLoggedIn) {
+          goto('/login');
+      }
+  });
 </script>
-<style>
-    nav {
-      background-color: #333;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-  
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
-      padding: 8px 15px;
-      border-radius: 4px;
-      transition: background-color 0.3s, color 0.3s;
-    }
-  
-    nav a:hover {
-      background-color: #575757;
-      color: #fff;
-    }
-  
-    nav a.active {
-      background-color: #007bff;
-      color: white;
-    }
-  
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-      }
-  
-      nav a {
-        margin: 5px 0;
-      }
-    }
-  </style>
-  
-  <nav>
-      <a href="/" class="active">Home</a>
+
+<nav>
+  <a href="/" class="active">Home</a>
+  {#if isLoggedIn}
       <a href="/map">Map</a>
       <a href="/bar">Bar</a>
       <a href="/bar2">Bar2</a>
@@ -54,5 +37,53 @@
       <a href="/stock-chart2">StockChart</a>
       <a href="/blog">Blog</a>
       <a href="/about">About</a>
-  </nav>
-  <slot></slot>
+  {/if}
+  {#if !isLoggedIn}
+      <a href="/login">Login</a>
+  {/if}
+</nav>
+
+<slot></slot>
+
+
+<style>
+	nav {
+		background-color: #333;
+		padding: 10px 20px;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	}
+
+	nav a {
+		color: white;
+		text-decoration: none;
+		font-size: 16px;
+		padding: 8px 15px;
+		border-radius: 4px;
+		transition:
+			background-color 0.3s,
+			color 0.3s;
+	}
+
+	nav a:hover {
+		background-color: #575757;
+		color: #fff;
+	}
+
+	nav a.active {
+		background-color: #007bff;
+		color: white;
+	}
+
+	@media (max-width: 768px) {
+		nav {
+			flex-direction: column;
+		}
+
+		nav a {
+			margin: 5px 0;
+		}
+	}
+</style>
