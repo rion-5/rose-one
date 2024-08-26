@@ -1,0 +1,7 @@
+.region {
+    fill: #ddd;
+    stroke: #333;
+  }
+  .region:hover {
+    fill: #aaa;
+  }
