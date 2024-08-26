@@ -1,7 +1,8 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import * as d3 from 'd3';
-  
+    import './map.css';
+    
     let svg: SVGSVGElement;
     const width = 800;
     const height = 600;
@@ -43,16 +44,6 @@
       drawMap(svgElement);
     });
   </script>
-  
-  <style>
-    .region {
-      fill: #ddd;
-      stroke: #333;
-    }
-    .region:hover {
-      fill: #aaa;
-    }
-  </style>
   
   <svg bind:this={svg}></svg>
   
